@@ -1,0 +1,50 @@
+{% extends "./base.html" %}
+
+{% block title%} Home {% endblock %}
+
+{% block body %}
+    <h2>Productos</h2>
+    <ul class="table-responsive py-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Proveedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in productos %}
+                    <tr>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.precio}}</td>
+                        <td>{{p.stock_actual}}</td>
+                        <td>{{ p.proveedor.nombre }} {{ p.proveedor.apellido }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ul>
+    <h2>Proveedores</h2>
+    <ul class="table-responsive py-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in proveedores %}
+                    <tr>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.apellido}}</td>
+                        <td>{{p.dni}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ul>
+{% endblock %}
